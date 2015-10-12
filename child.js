@@ -10,7 +10,7 @@ touch.on('exit', function (code, signal) {
   childProcess.exec('ls', function (err, stdout) {
     console.log('\nls');
     console.log(stdout.trim());
-    var rm = childProcess.fork('sub.js');
+    var rm = childProcess.fork('subchild.js');
     rm.send(fixture);
 
     rm.on('message', function (err, stdout) {
