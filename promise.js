@@ -1,14 +1,25 @@
 'use strict';
+const assert = require('assert');
 const fs = require('fs');
 
 read('.editorconfig')
-  .then(clean)
-  .then(parseToObject)
   .then(function (res) {
-    console.log(res);
+    return res.replace(/^root/gim, 'hello');
+  })
+  .then(function (res) {
+    console.log('Read editorconfig', res.indexOf('hello') === 0);
   })
   .catch(function (err) {
-    console.error(err);
+    console.log(err);
+  });
+
+Promise.all([read('.editorconfig'), read('fixture.txt')])
+  .then(function (res) {
+    console.log('Read editorconfig', res[0].indexOf('root') === 0);
+    console.log('Read fixture', res[1].indexOf('Ivan') === 0);
+  })
+  .catch(function (err) {
+    console.log(err);
   });
 
 function read(fileName) {
@@ -18,20 +29,4 @@ function read(fileName) {
       resolve(res);
     });
   });
-}
-
-function clean(str) {
-  return str.replace(/^(\s*\n)/gm, '').replace(/^(\[.+\]\n)/gm, '');
-}
-
-function parseToObject(str) {
-  var rows = str.replace(/\s=\s/gm, '=').split('\n');
-  var conf = {};
-
-  rows.forEach(function (val) {
-    var field = val.split('=');
-    conf[field[0]] = field[1];
-  });
-
-  return conf;
 }
