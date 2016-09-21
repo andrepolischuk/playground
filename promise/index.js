@@ -1,7 +1,7 @@
 'use strict';
 const fs = require('fs');
 
-read('.editorconfig')
+read('../.editorconfig')
   .then(function (res) {
     return res.replace(/^root/gim, 'hello');
   })
@@ -12,7 +12,7 @@ read('.editorconfig')
     console.log(err);
   });
 
-Promise.all([read('.editorconfig'), read('fixture.txt')])
+  Promise.all([read('../.editorconfig'), read('../fixture')])
   .then(function (res) {
     console.log('Read editorconfig', res[0].indexOf('root') === 0);
     console.log('Read fixture', res[1].indexOf('Ivan') === 0);

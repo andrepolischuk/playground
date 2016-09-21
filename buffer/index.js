@@ -2,7 +2,7 @@
 const Buffer = require('buffer').Buffer;
 const fs = require('fs');
 
-fs.readFile('fixture.txt', function (err, buff) {
+fs.readFile('../fixture', function (err, buff) {
   console.log(buff);
   console.log(buff.toString());
 });

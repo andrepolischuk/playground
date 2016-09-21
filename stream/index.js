@@ -2,7 +2,7 @@
 const http = require('http');
 const fs = require('fs');
 const server = http.createServer(listener);
-const fixture = 'fixture.txt';
+const fixture = '../fixture';
 server.listen(3000);
 
 function listener(req, res) {

@@ -2,8 +2,8 @@
 const fs = require('fs');
 const zlib = require('zlib');
 const gzip = zlib.createGzip();
-const input = fs.createReadStream('fixture.txt');
-const output = fs.createWriteStream('fixture.txt.gz')
+const input = fs.createReadStream('../fixture');
+const output = fs.createWriteStream('fixture.gz')
 input.pipe(gzip).pipe(output);
 
 fs.readdir(__dirname, function (err, files) {

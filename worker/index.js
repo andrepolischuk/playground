@@ -1,5 +1,5 @@
 'use strict';
-const worker = new Worker('subworker.js');
+const worker = new Worker('sub.js');
 
 worker.addEventListener('message', function (event) {
   console.log(event.data);

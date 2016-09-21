@@ -1,7 +1,7 @@
 'use strict';
 const fs = require('fs');
-cat('.editorconfig');
-cat('.config');
+cat('../.editorconfig');
+cat('../.config');
 
 async function cat(fileName) {
   try {
