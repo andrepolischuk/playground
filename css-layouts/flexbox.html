@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Flexbox</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    .root {
+      display: flex;
+      min-height: 100%;
+
+      flex-flow: row wrap;
+      /* flex-direction: row | row-reverse | column | column-reverse; */
+      /* flex-wrap: nowrap | wrap | wrap-reverse; */
+
+      justify-content: space-around;
+      /* justify-content: flex-start | flex-end | center | space-between | space-around; */
+
+      align-items: stretch;
+      /* align-items: stretch | flex-start | flex-end | center | space-between | space-around; */
+      /* align-content: stretch | flex-start | flex-end | center | space-between | space-around; */
+    }
+
+    aside {
+      background-color: green;
+      flex: 1;
+      /* flex-grow: 1; */
+      /* flex-shrink */
+      /* flex-basis */
+      /* order; */
+      /* align-self = align-items */
+    }
+
+    main {
+      background-color: yellow;
+      flex: 2;
+      margin-left: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="root">
+    <aside>Aside</aside>
+    <main>Main</main>
+  </div>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Grid</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    .root {
+      display: grid;
+      height: 100%;
+
+      grid: "header header header" 50px
+            "main . aside" auto
+            "footer footer footer" 50px
+            / 60% 15% 25% ;
+      /* grid-template-rows: 50px auto 50px; */
+      /* grid-template-columns: 60% 15% 25%; */
+      /* grid-template-areas: "header header header" */
+      /*                      "main . aside" */
+      /*                      "footer footer footer"; */
+
+      grid-gap: 10px;
+      /* grid-row-gap: 10px; */
+      /* grid-column-gap: 10px; */
+
+      /* along the column */
+      /* justify-items: start | end | center | stretch; */
+      /* justify-content: start | end | center | stretch | space-around | space-between | space-evenly; */
+
+      /* along the row */
+      /* align-items: start | end | center | stretch; */
+      /* align-content: start | end | center | stretch | space-around | space-between | space-evenly; */
+    }
+
+    header {
+      grid-area: header;
+      background-color: blue;
+
+      /* grid-column: 2 / span aside-start; */
+      /* grid-column-start: 2; */
+      /* grid-column-end: span aside-start; */
+
+      /* grid-row: main / 3; */
+      /* grid-row-start: main; */
+      /* grid-row-end: 3; */
+
+      /* justify-self: start | end | center | stretch; */
+      /* align-self: start | end | center | stretch; */
+    }
+
+    main {
+      grid-area: main;
+      background-color: yellow;
+    }
+
+    aside {
+      grid-area: aside;
+      background-color: red;
+    }
+
+    footer {
+      grid-area: footer;
+      background-color: green;
+    }
+  </style>
+</head>
+<body>
+  <div class="root" role="application">
+    <header>Header</header>
+    <main>Main</main>
+    <aside>Aside</aside>
+    <footer>Footer</footer>
+  </div>
+</body>
+</html>
